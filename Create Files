@@ -1,0 +1,16 @@
+FOR /L %A IN (1,1,10500) DO echo numeric%A.docx>%A.docx
+fsutil file createnew test.docx 52428800
+
+For /L %i in (1,1,250) do fsutil file createnew A%i.tmp 12288
+Creating 1000 files with size 5 MB
+
+For /L %i in (1,1,1000) do fsutil file createnew TextFile_A%i.txt 5368709
+
+fsutil file createnew test.docx 10737418240
+For /L %i in (1,1,250) do fsutil file createnew A%i.tmp 10737418240 
+
+Creating 1 file with size 500 MB
+For /L %i in (1,1,1) do fsutil file createnew Temp_500MB_File.txt 524288000
+
+Creating 1 file with size 1 GB
+For /L %i in (1,1,1) do fsutil file createnew Temp_1GB_File.tmp 1073741824
